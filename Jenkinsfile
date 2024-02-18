@@ -40,13 +40,18 @@ pipeline {
                 """
             }
         }
-        stage('Deploy') {
+        stage('Build') {
             steps {
                 sh """
-                    echo  "Here I wrote shell script"
-                    echo "$GREETING"
-                    #sleep 10
+                     ls -la
+                     zip -q -r catalogue.zip ./* -x ".git" -x "*.zip"
+                     ls -ltr
                 """
+            }
+        }
+        stage('Deploy') {
+            steps {
+
             }
         }
 //         stage('check params'){
@@ -69,6 +74,7 @@ pipeline {
     post {
         always {
             echo 'I will always say the word Hello again!'
+            deleteDir()
         }
         failure {
             echo 'this runs when pipeline is failed, used generally to send some alerts'

@@ -49,11 +49,11 @@ pipeline {
                 """
             }
         }
-        stage('Deploy') {
-            steps {
-
-            }
-        }
+//         stage('Deploy') {
+//             steps {
+//
+//             }
+//         }
 //         stage('check params'){
 //             steps{
 //                 sh """
